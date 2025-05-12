@@ -20,16 +20,15 @@
     nav{flex:1}
     nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
     nav li{position:relative;padding-bottom:.2rem}
-    nav li.active::after,nav li:hover::after{
-      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)
-    }
+    nav li.active::after,nav li:hover::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)}
 
     .lang-toggle{font-size:.9rem;margin-left:auto;white-space:nowrap;cursor:pointer}
     .lang-toggle span{margin-left:.35rem;padding:0 .2rem .05rem}
     .lang-toggle span.active{border-bottom:2px solid var(--accent)}
 
     /* ---------- MAIN ---------- */
-    main{margin-top:2.5rem;max-width:42rem;font-size:1.125rem}
+    main{margin-top:2.5rem;max-width:48rem;font-size:1.125rem;display:flex;flex-direction:column;gap:1.25rem}
+    main h2{font-size:1.35rem;margin-top:1.75rem}
 
     /* ---------- FOOTER ---------- */
     footer{border-top:1px solid var(--txt-muted);margin-top:5rem;padding:1.25rem 0 2.5rem;display:flex;justify-content:space-between;font-size:.95rem;flex-wrap:wrap;gap:.5rem}
@@ -64,9 +63,23 @@
 
     <!-- MAIN CONTENT -->
     <main id="mainContent">
-      <p data-i18n="intro">
-        Nadhari AI Lab is advancing frontier Swahili-native AI foundation models and tools, enabling researchers, developers, and businesses across Africa to build intelligent applications that serve millions in their own language.
-      </p>
+      <p>Nadhari is an <strong>artificial‑intelligence research and product lab</strong>. Our mission is to advance frontier AI research and applications in Sub‑Saharan Africa (and beyond).</p>
+
+      <p>Africa is lagging behind in the AI race. We lack the infrastructure and capital needed to reach the frontier.</p>
+
+      <p>The good news is that <em>knowledge is not scarce</em>, and we have enough technical talent to push us through. <strong>This is our only bet.</strong></p>
+
+      <h2>How we’ll get there</h2>
+      <ol style="margin-left:1.25rem;padding-left:.5rem;display:flex;flex-direction:column;gap:.75rem">
+        <li>Conducting and open‑sourcing frontier AI research on current and future architectures.</li>
+        <li>Building and deploying products that apply this research at scale.</li>
+      </ol>
+
+      <p>We aim to unlock a tremendous amount of value across the continent through <em>intelligence augmentation</em>.</p>
+
+      <p>This is an exciting challenge and opportunity. It’s an honor to play a part in building an abundant world.</p>
+
+      <p style="margin-top:2rem">— <strong>Alfaxad Eyembe</strong><br /><small>May&nbsp;12,&nbsp;2025</small></p>
     </main>
 
     <!-- FOOTER -->
@@ -79,8 +92,8 @@
   <!-- ---------- SIMPLE I18N ---------- -->
   <script>
     const strings={
-      en:{home:"Home",research:"Research",intro:"Nadhari AI Lab is advancing frontier Swahili-native AI foundation models and tools, enabling researchers, developers, and businesses across Africa to build intelligent applications that serve millions in their own language."},
-      sw:{home:"Nyumbani",research:"Utafiti",intro:"Nadhari AI Lab inaendeleza modeli za msingi za AI zilizoasili katika Kiswahili na zana zinazohusiana, kuwapatia watafiti, watengenezaji na biashara barani Afrika uwezo wa kujenga matumizi mahiri yanayohudumia mamilioni kwa lugha yao."}
+      en:{home:"Home",research:"Research"},
+      sw:{home:"Nyumbani",research:"Utafiti"}
     };
 
     const elements=document.querySelectorAll('[data-i18n]');
@@ -93,6 +106,7 @@
       if(e.target.id==='lang-en')setLanguage('en');
       if(e.target.id==='lang-sw')setLanguage('sw');
     });
+
     setLanguage('en');
   </script>
 </body>
