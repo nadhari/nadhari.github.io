@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nadhari AI Lab (Ν)</title>
+  <style>
+    /* ----------  BASIC TOKENS  ---------- */
+    :root {
+      --bg: #f1f0ec; /* same warm‑grey background seen in screenshots */
+      --txt: #000;
+      --txt-muted: #555;
+      --accent: #000; /* underline accent */
+      --font-serif: "Georgia", "Times New Roman", serif;
+      --font-mono: "Courier New", monospace;
+    }
+
+    /* ----------  RESET  ---------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-serif);
+      color: var(--txt);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ----------  LAYOUT WRAPPERS  ---------- */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ----------  HEADER  ---------- */
+    header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .brand {
+      font-size: 2.25rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      font-size: 1.25rem;
+    }
+
+    nav li {
+      position: relative;
+      padding-bottom: 0.25rem;
+      cursor: pointer;
+    }
+
+    nav li.active::after,
+    nav li:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    /* ----------  LANGUAGE TOGGLE  ---------- */
+    .lang-toggle {
+      font-size: 0.95rem;
+      cursor: pointer;
+      user-select: none;
+      letter-spacing: .5px;
+    }
+
+    .lang-toggle span {
+      margin-left: 0.4rem;
+      padding: 0.1rem 0.25rem;
+    }
+
+    .lang-toggle span.active {
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* ----------  MAIN TYPOGRAPHY  ---------- */
+    main {
+      margin-top: 3rem;
+      font-size: 1.25rem;
+      max-width: 42rem;
+    }
+
+    /* ----------  FOOTER  ---------- */
+    footer {
+      border-top: 1px solid var(--txt-muted);
+      margin-top: 6rem;
+      padding: 1.5rem 0 3rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      nav ul {
+        gap: 1.25rem;
+      }
+      footer {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER  -->
+    <header>
+      <div class="brand">Nadhari AI Lab (Ν)</div>
+      <nav>
+        <ul>
+          <li id="nav-home" class="active" data-i18n="home"></li>
+          <li id="nav-research" data-i18n="research"></li>
+        </ul>
+      </nav>
+      <div class="lang-toggle" id="langToggle">
+        <span id="lang-en" class="active">EN</span> | <span id="lang-sw">SW</span>
+      </div>
+    </header>
+
+    <!-- MAIN  -->
+    <main id="mainContent">
+      <p data-i18n="intro">
+        Physical Intelligence is bringing general‑purpose AI into the physical world. We are a group of engineers, scientists, roboticists, and company builders developing foundation models and learning algorithms to power the robots of today and the physically‑actuated devices of the future.
+      </p>
+    </main>
+
+    <!-- FOOTER  -->
+    <footer>
+      <div id="footerLeft">Nadhari AI Lab</div>
+      <div id="footerRight">X/Twitter: <a href="https://twitter.com/NadhariAI" target="_blank" rel="noopener">@NadhariAI</a></div>
+    </footer>
+  </div>
+
+  <!-- ----------  SIMPLE I18N SCRIPT  ---------- -->
+  <script>
+    const strings = {
+      en: {
+        home: "Home",
+        research: "Research",
+        intro: "Nadhari AI Lab is advancing frontier Swahili‑native AI foundation models and tools, enabling researchers, developers, and businesses across Africa to build intelligent applications that serve millions in their own language."
+      },
+      sw: {
+        home: "Nyumbani",
+        research: "Utafiti",
+        intro: "Nadhari AI Lab inaendeleza modeli za msingi za AI zilizoasili katika Kiswahili na zana zinazohusiana, kuwapatia watafiti, watengenezaji na biashara barani Afrika uwezo wa kujenga matumizi mahiri yanayohudumia mamilioni kwa lugha yao."
+      }
+    };
+
+    const elements = document.querySelectorAll("[data-i18n]");
+
+    function setLanguage(lang) {
+      elements.forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.textContent = strings[lang][key];
+      });
+      // underline toggle ui
+      document.querySelectorAll('.lang-toggle span').forEach(s => s.classList.remove('active'));
+      document.getElementById(`lang-${lang}`).classList.add('active');
+    }
+
+    document.getElementById("langToggle").addEventListener("click", (e) => {
+      if (e.target.id === "lang-en") setLanguage("en");
+      if (e.target.id === "lang-sw") setLanguage("sw");
+    });
+
+    // initial
+    setLanguage("en");
+  </script>
+</body>
+</html>
