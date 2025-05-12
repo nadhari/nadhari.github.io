@@ -12,7 +12,6 @@
       --pill-bg:#d7d7d7; --font-serif:"Georgia","Times New Roman",serif;
     }
 
-    /* base */
     body{
       font-family:var(--font-serif);
       background:var(--bg);
@@ -34,10 +33,7 @@
     nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
     nav li{position:relative;padding-bottom:.2rem}
     nav li.active::after,nav li:hover::after{
-      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)
-    }
-
-    /* remove underline from brand + nav */
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)}
     .brand a,nav a{text-decoration:none}
 
     /* ===== article ===== */
@@ -62,7 +58,7 @@
       gap:.45rem;
       cursor:pointer;
       transition:background .15s;
-      text-decoration:none;     /* no underline */
+      text-decoration:none;
     }
     .pill:hover{background:#efefef}
 
@@ -94,7 +90,7 @@
     @media(max-width:640px){
       .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
       nav ul{gap:1.25rem;font-size:1rem}
-      h1{font-size:2.15rem}
+      h1{font-size:1.8rem}      /* smaller headline on phones */
     }
   </style>
 </head>
@@ -107,7 +103,7 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="research.html">Research</a></li>
+          <li class="active"><a href="research.html">Research</a></li>
         </ul>
       </nav>
     </header>
@@ -137,7 +133,7 @@
       <!-- model overview -->
       <h2>Model Suite Overview</h2>
       <ul>
-        <li><strong>Gemma2&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;Preview</strong>: a specialized 2 B continual-pretrained model with enhanced Swahili comprehension (fully trained version coming soon).</li>
+        <li><strong>Gemma2&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;Preview</strong>: a specialized 2&nbsp;B continual-pretrained model with enhanced Swahili comprehension (fully trained version coming soon).</li>
         <li><strong>Gemma2&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;IT</strong>: a lightweight instruction-tuned model for efficient text generation.</li>
         <li><strong>Gemma2&nbsp;9&nbsp;B&nbsp;Swahili&nbsp;IT</strong>: a balanced instruction-tuned model with strong capability to compute ratio.</li>
         <li><strong>Gemma2&nbsp;27&nbsp;B&nbsp;Swahili&nbsp;IT</strong>: flagship model delivering state-of-the-art Swahili understanding and task completion.</li>
@@ -182,22 +178,26 @@ Kwa dunia ya leo ambako taarifa husafiri kwa mwanga wa nyuzi, uchumi wa kidijita
       <h2>Performance Benchmarks</h2>
 
       <h3>Swahili MMLU (Massive Multitask Language Understanding)</h3>
-      <div class="hero"><img src="images/mmlu-sw.png" alt="Swahili MMLU benchmark chart"></div>
+      <div class="hero">
+        <img src="images/mmlu-sw.png" alt="Swahili MMLU benchmark chart">
+      </div>
       <p>
-        Fine-tuning on curated Swahili corpora lifts accuracy dramatically. The 2 B model rises from
-        <strong>15 %</strong> to <strong>34 %</strong>. The 9 B checkpoint surpasses <strong>55 %</strong>,
-        a level previously reachable only with much larger multilingual systems. Even after 4-bit
-        quantization the 27 B model retains <strong>54 %</strong>, delivering frontier performance at a
-        fraction of the memory footprint.
+        Fine-tuning on curated Swahili corpora lifts accuracy dramatically. The 2&nbsp;B model rises
+        from <strong>15&nbsp;%</strong> to <strong>34&nbsp;%</strong>. The 9&nbsp;B checkpoint surpasses
+        <strong>55&nbsp;%</strong>, a level previously reachable only with much larger multilingual
+        systems. Even after 4-bit quantization the 27&nbsp;B model retains <strong>54&nbsp;%</strong>,
+        delivering frontier performance at a fraction of the memory footprint.
       </p>
 
       <h3>Sentiment Analysis Results</h3>
-      <div class="hero"><img src="images/sentiment-sw.png" alt="Swahili sentiment analysis chart"></div>
+      <div class="hero">
+        <img src="images/sentiment-sw.png" alt="Swahili sentiment analysis chart">
+      </div>
       <p>
-        Sentiment classification shows similar gains. The 2 B instruction model jumps from
-        <strong>49 %</strong> to <strong>66.5 %</strong>. The 27 B quantized model sets a new record at
-        <strong>88.5 %</strong>. These results confirm that targeted Swahili fine-tuning consistently
-        outperforms generic multilingual pre-training.
+        Sentiment classification shows similar gains. The 2&nbsp;B instruction model jumps from
+        <strong>49&nbsp;%</strong> to <strong>66.5&nbsp;%</strong>. The 27&nbsp;B quantized model sets a
+        new record at <strong>88.5&nbsp;%</strong>. These results confirm that targeted Swahili
+        fine-tuning consistently outperforms generic multilingual pre-training.
       </p>
 
       <!-- conclusion -->
