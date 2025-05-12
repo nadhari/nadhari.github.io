@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemma 2 Swahili – Nadhari AI Lab</title>
+  <title>Introducing Gemma 2 Swahili – Nadhari AI Lab</title>
   <style>
     /* ---- TOKENS ---- */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -24,14 +24,19 @@
     /* ---- ARTICLE ---- */
     article{margin-top:3rem}
     h1{font-size:2.75rem;line-height:1.2;margin-bottom:2rem}
+    h2{font-size:1.35rem;margin:2.25rem 0 1rem}
+    h3{font-size:1.1rem;margin:1.5rem 0 .75rem}
 
     .hero{width:100%;border-radius:1rem;overflow:hidden;margin-bottom:1.75rem}
     .hero img{width:100%;display:block}
 
     /* pills */
-    .link-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem}
+    .link-row{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem}
     .pill{border:2px dotted var(--accent);background:var(--pill-bg);padding:.45rem .95rem;font-size:.9rem;font-weight:500;display:inline-flex;align-items:center;gap:.45rem;cursor:pointer;transition:background .15s}
     .pill:hover{background:#efefef}
+
+    ul,ol{margin-left:1.25rem}
+    pre{background:#e9e9e9;padding:1rem;border-radius:.5rem;overflow-x:auto;font-size:.9rem;margin:1rem 0}
 
     /* ---- FOOTER ---- */
     footer{border-top:1px solid var(--txt-muted);margin-top:5rem;padding:1.25rem 0 2.5rem;display:flex;justify-content:space-between;font-size:.95rem;flex-wrap:wrap;gap:.5rem}
@@ -59,7 +64,7 @@
 
     <!-- ARTICLE -->
     <article>
-      <h1>Gemma 2 Swahili: Unlocking Frontier Language Models for Africa</h1>
+      <h1>Introducing Gemma 2 Swahili</h1>
 
       <!-- HERO IMAGE -->
       <div class="hero"><img src="images/klm.PNG" alt="Gemma 2 Swahili hero image"></div>
@@ -71,8 +76,53 @@
         <a class="pill" href="https://github.com/Alfaxad/gemma2-swahili-models" target="_blank" rel="noopener">GitHub</a>
       </div>
 
-      <p><em>Full technical details and benchmarks coming soon.</em></p>
-      <p>This page will provide a deep dive into our data pipeline, training recipe, evaluation results across Swahili and multilingual benchmarks, and showcase real-world applications powered by Gemma 2 Swahili.</p>
+      <p>We were truly inspired by the <a href="https://developers.googleblog.com/en/advancing-multilingual-ai-with-gemma-2-and-a-150k-challenge/" target="_blank" rel="noopener">Gemma 2 Japanese release</a> last year. That excitement pushed us to build Swahili variants of the Gemma 2 models.</p>
+
+      <p>Today we’re releasing <strong>Gemma 2 Swahili</strong> — a family of models specifically adapted for Swahili understanding and generation. This marks a major step toward bringing advanced AI to the <a href="https://www.facebook.com/unesco/posts/did-you-know-that-kiswahili-is-one-of-the-most-widely-used-languages-of-the-afri/857293389779544/" target="_blank" rel="noopener">200 million‑plus speakers</a> of the language.</p>
+
+      <p>All checkpoints are available on Kaggle and Hugging Face, together with <a href="https://github.com/Alfaxad/gemma2-swahili-models" target="_blank" rel="noopener">comprehensive docs</a> covering training, inference, and evaluation. We can’t wait to see what you build!</p>
+
+      <h2>Model Suite Overview</h2>
+      <ul>
+        <li><strong>Gemma2‑2B‑Swahili‑Preview</strong> – continual‑pretrained; a fully trained version is coming soon.</li>
+        <li><strong>Gemma2‑2B‑Swahili‑IT</strong> – lightweight instruction‑tuned for efficient generation.</li>
+        <li><strong>Gemma2‑9B‑Swahili‑IT</strong> – a balanced instruction‑tuned model with enhanced capabilities.</li>
+        <li><strong>Gemma2‑27B‑Swahili‑IT</strong> – flagship model delivering SOTA Swahili understanding and task completion.</li>
+      </ul>
+
+      <h2>Key Capabilities</h2>
+      <ul>
+        <li>Native Swahili text generation &amp; comprehension</li>
+        <li>Advanced instruction following</li>
+        <li>Strong creative &amp; technical writing</li>
+        <li>Cultural context awareness for East Africa</li>
+        <li>Scalable deployment options (from phones to servers)</li>
+      </ul>
+
+      <h2>Model Examples</h2>
+      <h3>Creative Writing (Gemma 2 B Swahili IT)</h3>
+      <pre><strong>Prompt:</strong>
+Tunga hadithi fupi kuhusu Twiga</pre>
+      <pre><strong>Response (excerpt):</strong>
+Twiga alikuwa mnyama mwitu mwenye furaha aliyekuwa akiishi kandokando ya jiji la bandari… (full story)</pre>
+
+      <h3>Comprehensive Writing (Gemma 2 B Swahili IT)</h3>
+      <pre><strong>Prompt:</strong>
+Eleza dhana ya uchumi wa kidijitali na umuhimu wake katika ulimwengu wa leo</pre>
+      <pre><strong>Response (excerpt):</strong>
+Uchumi wa kidijitali ni mfumo wa kiuchumi unaoendeshwa na teknolojia za mtandaoni… (full essay)</pre>
+
+      <h2>Performance Benchmarks</h2>
+      <h3>Swahili MMLU</h3>
+      <div class="hero" style="margin:1rem 0"><img src="images/mmlu-sw.png" alt="Swahili MMLU performance chart"></div>
+      <p>Fine‑tuning unlocks a <strong>~20–40 pp</strong> absolute gain across all model sizes, with the 9 B variant crossing the 55 % accuracy mark — outperforming comparable multilingual baselines.</p>
+
+      <h3>Sentiment Analysis</h3>
+      <div class="hero" style="margin:1rem 0"><img src="images/sentiment-sw.png" alt="Swahili sentiment analysis chart"></div>
+      <p>On sentiment analysis the gains are equally dramatic: the 2 B model jumps from <em>49 %</em> to <em>66 %</em>, while the 27 B quantized model reaches <em>≈ 88 %</em> accuracy — a new state‑of‑the‑art for Swahili.</p>
+
+      <h2>Looking Ahead</h2>
+      <p>Gemma 2 Swahili is just the beginning. We’re exploring speech models, cross‑lingual transfer, and even lighter on‑device variants. Feedback, pull‑requests, and benchmark results are all welcome — let’s push Swahili AI to the frontier together!</p>
     </article>
 
     <!-- FOOTER -->
