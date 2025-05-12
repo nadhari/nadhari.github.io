@@ -5,52 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introducing Gemma 2 Swahili – Nadhari AI Lab</title>
   <style>
-    /* ---- TOKENS ---- */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#f1f0ec;--txt:#000;--txt-muted:#666;--accent:#000;--pill-bg:#d7d7d7;--font-serif:"Georgia","Times New Roman",serif}
     body{font-family:var(--font-serif);background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
-    a{color:inherit;text-decoration:none}
+    a{color:inherit;text-decoration:underline}
     .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
-
-    /* HEADER */
     header{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
     .brand{font-size:2rem;font-weight:600}
     nav{flex:1}
     nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
     nav li{position:relative;padding-bottom:.2rem}
     nav li.active::after,nav li:hover::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)}
-
-    /* ARTICLE */
     article{margin-top:3rem}
     h1{font-size:2.75rem;line-height:1.2;margin-bottom:2rem}
     h2{font-size:1.4rem;margin:2.25rem 0 1rem}
     h3{font-size:1.15rem;margin:1.5rem 0 .75rem}
-
     .hero{width:100%;border-radius:1rem;overflow:hidden;margin-bottom:1.75rem}
     .hero img{width:100%;display:block}
-
-    /* pills */
     .link-row{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem}
     .pill{border:2px dotted var(--accent);background:var(--pill-bg);padding:.45rem 1rem;font-size:.9rem;font-weight:500;display:inline-flex;align-items:center;gap:.45rem;cursor:pointer;transition:background .15s}
     .pill:hover{background:#efefef}
-
     ul,ol{margin-left:1.25rem}
-    pre{background:#ebebeb;padding:1rem;border-radius:.5rem;overflow-x:auto;font-size:.9rem;margin:1rem 0}
-
-    /* FOOTER */
+    pre{background:#ebebeb;padding:1rem;border-radius:.5rem;font-size:.9rem;margin:1rem 0;white-space:pre-wrap;word-break:break-word}
     footer{border-top:1px solid var(--txt-muted);margin-top:5rem;padding:1.25rem 0 2.5rem;display:flex;justify-content:space-between;font-size:.95rem;flex-wrap:wrap;gap:.5rem}
-
-    /* MOBILE */
-    @media(max-width:640px){
-      .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
-      nav ul{gap:1.25rem;font-size:1rem}
-      h1{font-size:2.15rem}
-    }
+    @media(max-width:640px){.brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}nav ul{gap:1.25rem;font-size:1rem}h1{font-size:2.15rem}}
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- HEADER -->
     <header>
       <div class="brand"><a href="index.html">Nadhari AI Lab (Ν)</a></div>
       <nav>
@@ -61,41 +43,36 @@
       </nav>
     </header>
 
-    <!-- ARTICLE -->
     <article>
       <h1>Introducing Gemma&nbsp;2 Swahili</h1>
 
-      <!-- HERO IMAGE -->
       <div class="hero"><img src="images/klm.PNG" alt="Gemma 2 Swahili hero image"></div>
 
-      <!-- RESOURCE PILLS -->
       <div class="link-row">
         <a class="pill" href="https://www.kaggle.com/code/alfaxadeyembe/introducing-gemma-2-swahili" target="_blank" rel="noopener">📄 Kaggle</a>
         <a class="pill" href="https://huggingface.co/Alfaxad" target="_blank" rel="noopener">🤗 Hugging&nbsp;Face</a>
         <a class="pill" href="https://github.com/Alfaxad/gemma2-swahili-models" target="_blank" rel="noopener">GitHub</a>
       </div>
 
-      <p>We were really fascinated by the <a href="https://developers.googleblog.com/en/advancing-multilingual-ai-with-gemma-2-and-a-150k-challenge/" target="_blank" rel="noopener">Gemma&nbsp;2 Japanese releases</a> last year, so much that we felt compelled to build Swahili variants of the models.</p>
-
-      <p>We are excited to announce <strong>Gemma&nbsp;2 Swahili</strong>, a comprehensive suite of Gemma&nbsp;2 language models specifically adapted for Swahili understanding and generation. This release is an important step toward bringing frontier AI technology to <a href="https://www.facebook.com/unesco/posts/did-you-know-that-kiswahili-is-one-of-the-most-widely-used-languages-of-the-afri/857293389779544/" target="_blank" rel="noopener">more than two hundred million speakers</a>.</p>
-
-      <p>The checkpoints are live on <a href="https://www.kaggle.com/models/alfaxadeyembe/gemma-2-swahili" target="_blank" rel="noopener">Kaggle</a> and <a href="https://huggingface.co/Alfaxad" target="_blank" rel="noopener">Hugging&nbsp;Face</a>. You will also find <a href="https://github.com/Alfaxad/gemma2-swahili-models" target="_blank" rel="noopener">comprehensive documentation</a> covering training, inference, and evaluation. Try the models and share your feedback.</p>
+      <p>We were really fascinated by the <a href="https://developers.googleblog.com/en/advancing-multilingual-ai-with-gemma-2-and-a-150k-challenge/" target="_blank" rel="noopener">Gemma&nbsp;2 Japanese releases</a> last year, so much that we felt compelled to work on Swahili variations of Gemma&nbsp;2 models.</p>
+      <p>We are excited to announce the release of Gemma&nbsp;2 Swahili, a comprehensive suite of Gemma&nbsp;2 language models specifically adapted for Swahili language understanding and generation. This release represents a significant step forward in making advanced AI technology accessible to the <a href="https://www.facebook.com/unesco/posts/did-you-know-that-kiswahili-is-one-of-the-most-widely-used-languages-of-the-afri/857293389779544/" target="_blank" rel="noopener">two hundred million plus speakers</a> of the language.</p>
+      <p>All models are now available on <a href="https://www.kaggle.com/models/alfaxadeyembe/gemma-2-swahili" target="_blank" rel="noopener">Kaggle</a> and <a href="https://huggingface.co/Alfaxad" target="_blank" rel="noopener">Hugging&nbsp;Face</a>, as well as <a href="https://github.com/Alfaxad/gemma2-swahili-models" target="_blank" rel="noopener">comprehensive documentation</a> on training, inference and evaluation. We are excited for you to try these models out and we look forward to your feedback.</p>
 
       <h2>Model Suite Overview</h2>
       <ul>
-        <li><strong>Gemma2&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;Preview</strong> – specialized continual pre‑training for Swahili comprehension. A fully trained version is coming soon.</li>
-        <li><strong>Gemma2&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;IT</strong> – lightweight instruction tuned model for efficient text generation.</li>
-        <li><strong>Gemma2&nbsp;9&nbsp;B&nbsp;Swahili&nbsp;IT</strong> – balanced instruction tuned model that offers a strong quality to compute ratio.</li>
-        <li><strong>Gemma2&nbsp;27&nbsp;B&nbsp;Swahili&nbsp;IT</strong> – flagship model that achieves state of the art Swahili understanding and task completion.</li>
+        <li><strong>Gemma2&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;Preview</strong>: A specialized 2&nbsp;B continual-pretrained model with improved Swahili language understanding. A fully trained version will be released soon.</li>
+        <li><strong>Gemma2&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;IT</strong>: A lightweight instruction-tuned model optimized for efficient Swahili text generation.</li>
+        <li><strong>Gemma2&nbsp;9&nbsp;B&nbsp;Swahili&nbsp;IT</strong>: A balanced instruction-tuned model offering enhanced capabilities while maintaining reasonable compute requirements.</li>
+        <li><strong>Gemma2&nbsp;27&nbsp;B&nbsp;Swahili&nbsp;IT</strong>: Our flagship instruction-tuned model delivering state of the art Swahili understanding and strong task completion.</li>
       </ul>
 
       <h2>Key Capabilities</h2>
       <ul>
-        <li>Native Swahili generation and comprehension</li>
-        <li>Advanced instruction following</li>
+        <li>Native Swahili text generation</li>
+        <li>Advanced instruction following in Swahili</li>
         <li>High performance on technical and creative tasks</li>
-        <li>Cultural awareness of East African context</li>
-        <li>Efficient deployment from phones to servers</li>
+        <li>Cultural context awareness for East African content</li>
+        <li>Efficient deployment options across scales</li>
       </ul>
 
       <h2>Model Capabilities</h2>
@@ -105,40 +82,8 @@ Tunga hadithi fupi kuhusu Twiga</pre>
       <pre><strong>Response</strong>
 Twiga alikuwa mnyama mwitu wa asili ambaye alikuwa na furaha ya kuishi katika jiji la bandarini. Alikuwa amefungwa kwa nyumba yake ya kawaida, lakini kwa sababu ya uchovu wake, hakuwa na muda wa kucheza.
 
-Hata hivyo, jiji lake lilikuwa likikumbwa na mabadiliko ya hali ya hewa. Maji yalikuwa yakipungua, na siku moja Twiga aligundua kuwa maji ya ziwa yalikuwa yametoweka. Hofu ilimvaa, kwa sababu kupotea kwa maji kungemaanisha kupotea kwa makazi yake.
+Hata hivyo, jiji lake lilikuwa likikumbwa na mabadiliko ya hali ya hewa. Maji yalikuwa yakipungua, na siku moja Twiga aligundua kuwa maji ya ziwa yalikuwa yametoweka. Hofu ilimvaa kwa sababu kupotea kwa maji kungemaanisha kupotea kwa makazi yake.
 
-Twiga alitamani kurudisha maji ya ziwa lakini hakujua aanzie wapi. Alijaribu kuuliza barabarani bila mafanikio. Baada ya muda alimuona mzee aliyeketi karibu na ziwa na akaomba msaada.
+Twiga alitamani kurudisha maji ya ziwa lakini hakujua aanzie wapi. Alijaribu kuuliza barabarani bila mafanikio. Baada ya muda alimwona mzee aliyeketi karibu na ziwa na akaomba msaada.
 
-Mzee huyo alimweleza kuwa siri ya kurudisha maji ilikuwa kwenye mtihani wa kuunganisha nguvu za viumbe wote wanaoishi kandokando ya ziwa. Twiga alifuata maelekezo, akashirikisha wanyama na watu. Kufikia jioni, maji yalirudi na Twiga akagundua thamani ya ushirikiano. Alirudi nyumbani akiwa na furaha na shukrani kwa jamii yake mpya.</pre>
-
-      <h3>Example&nbsp;2 – Comprehensive writing (Gemma&nbsp;2&nbsp;B&nbsp;Swahili&nbsp;IT)</h3>
-      <pre><strong>Prompt</strong>
-Eleza dhana ya uchumi wa kidijitali na umuhimu wake katika ulimwengu wa leo</pre>
-      <pre><strong>Response</strong>
-Uchumi wa kidijitali ni mfumo wa kiuchumi unaotumia teknolojia za mtandaoni kuwezesha uzalishaji, usambazaji na matumizi ya bidhaa na huduma. Ndani ya mfumo huu, data huchukua nafasi ya mali ghafi kama rasilimali kuu, na miamala hufanyika kwa kasi na uwazi kupitia majukwaa ya kidijitali.
-
-Umuhimu wake unatokana na vipengele vinne vikuu. Kwanza, unafungua masoko mapya kwa kupunguza vikwazo vya kijiografia na gharama za miamala. Pili, unaharakisha uvumbuzi kwa kurahisisha ushirikiano wa kimataifa na upatikanaji wa habari. Tatu, unapunguza gharama za uendeshaji kwa kutumia kiotomatiki na uchanganuzi wa data. Nne, unaleta uwazi na ufuatiliaji wa rasilimali kupitia leja za kidijitali na mifumo ya malipo ya papo hapo.
-
-Kwa dunia ya leo ambako taarifa husafiri kwa mwanga wa nyuzi, uchumi wa kidijitali unakuwa nguzo ya ushindani wa kitaifa na maendeleo jumuishi. Biashara zinazoikumbatia zinapata ufanisi, wakati watumiaji hunufaika na chaguo pana na bei nafuu.</pre>
-
-      <h2>Performance Benchmarks</h2>
-      <h3>Swahili MMLU (Massive Multitask Language Understanding)</h3>
-      <div class="hero" style="margin:1rem 0"><img src="images/mmlu-sw.png" alt="Swahili MMLU performance chart"></div>
-      <p>Fine‑tuning on high quality Swahili corpora closes a decades‑long performance gap. The 2&nbsp;B model improves from <strong>15&nbsp;percent</strong> to <strong>34&nbsp;percent</strong> accuracy, while the 9&nbsp;B variant reaches <strong>55.8&nbsp;percent</strong>. Even the 27&nbsp;B model, quantized to 4‑bit weights for efficiency, maintains <strong>54&nbsp;percent</strong> accuracy, matching much larger multilingual baselines but with far lower latency and memory use.</p>
-
-      <h3>Sentiment Analysis Results</h3>
-      <div class="hero" style="margin:1rem 0"><img src="images/sentiment-sw.png" alt="Swahili Sentiment analysis chart"></div>
-      <p>Sentiment classification shows similar gains. The 2&nbsp;B instruction model adds almost <strong>18&nbsp;percentage points</strong> over its base version. Larger models hover near the ceiling of the dataset, with the 27&nbsp;B quantized checkpoint achieving <strong>88.5&nbsp;percent</strong> accuracy. These results highlight the value of targeted Swahili fine‑tuning rather than relying on generic multilingual pre‑training alone.</p>
-
-      <h2>Conclusion</h2>
-      <p>Gemma&nbsp;2 Swahili demonstrates that purposeful data collection, focused continual pre‑training and careful instruction tuning can deliver frontier‑level language capability for under‑served languages. We invite the community to experiment with these models, report use‑cases, and contribute improvements so that Swahili speakers can benefit fully from the AI revolution.</p>
-    </article>
-
-    <!-- FOOTER -->
-    <footer>
-      <div>Nadhari AI Lab</div>
-      <div>X/Twitter: <a href="https://twitter.com/NadhariAI" target="_blank" rel="noopener">@NadhariAI</a></div>
-    </footer>
-  </div>
-</body>
-</html>
+Mzee huyo alimweleza kwamba siri ya kurudisha maji ilikuwa kwenye mtihani wa kuunganisha nguvu za viumbe wote wanaoishi kandokando ya ziwa. Twiga aliwasiliana na ndege, samaki, wanyama na watu. Kufikia jioni maji yalirudi na Twiga akagundua
