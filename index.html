@@ -28,7 +28,6 @@
 
     /* ---------- MAIN ---------- */
     main{margin-top:2.5rem;max-width:48rem;font-size:1.125rem;display:flex;flex-direction:column;gap:1.25rem}
-    main h2{font-size:1.35rem;margin-top:1.75rem}
 
     /* ---------- FOOTER ---------- */
     footer{border-top:1px solid var(--txt-muted);margin-top:5rem;padding:1.25rem 0 2.5rem;display:flex;justify-content:space-between;font-size:.95rem;flex-wrap:wrap;gap:.5rem}
@@ -63,23 +62,30 @@
 
     <!-- MAIN CONTENT -->
     <main id="mainContent">
-      <p>Nadhari is an <strong>artificial‑intelligence research and product lab</strong>. Our mission is to advance frontier AI research and applications in Sub‑Saharan Africa (and beyond).</p>
+      <p>Nadhari is an artificial-intelligence research and product lab. Our mission is to advance frontier AI research and applications in Sub-Saharan Africa (and beyond).</p>
 
       <p>Africa is lagging behind in the AI race. We lack the infrastructure and capital needed to reach the frontier.</p>
 
-      <p>The good news is that <em>knowledge is not scarce</em>, and we have enough technical talent to push us through. <strong>This is our only bet.</strong></p>
+      <p>The good news is that knowledge is not scarce, and we have enough technical talent to push us through.</p>
 
-      <h2>How we’ll get there</h2>
-      <ol style="margin-left:1.25rem;padding-left:.5rem;display:flex;flex-direction:column;gap:.75rem">
-        <li>Conducting and open‑sourcing frontier AI research on current and future architectures.</li>
+      <p>This is our only bet.</p>
+
+      <p>We are going to achieve our mission by:</p>
+
+      <ol style="margin-left:1.25rem;padding-left:.5rem">
+        <li>Conducting and open-sourcing frontier AI research on current and future architectures.</li>
         <li>Building and deploying products that apply this research at scale.</li>
       </ol>
 
-      <p>We aim to unlock a tremendous amount of value across the continent through <em>intelligence augmentation</em>.</p>
+      <p>We aim to unlock a tremendous amount of value across the continent through intelligence augmentation.</p>
 
-      <p>This is an exciting challenge and opportunity. It’s an honor to play a part in building an abundant world.</p>
+      <p>This is an exciting challenge and opportunity.</p>
 
-      <p style="margin-top:2rem">— <strong>Alfaxad Eyembe</strong><br /><small>May&nbsp;12,&nbsp;2025</small></p>
+      <p>It’s an honor to play a part in building an abundant world.</p>
+
+      <p>Alfaxad Eyembe</p>
+
+      <p>May 12, 2025</p>
     </main>
 
     <!-- FOOTER -->
@@ -91,11 +97,7 @@
 
   <!-- ---------- SIMPLE I18N ---------- -->
   <script>
-    const strings={
-      en:{home:"Home",research:"Research"},
-      sw:{home:"Nyumbani",research:"Utafiti"}
-    };
-
+    const strings={en:{home:"Home",research:"Research"},sw:{home:"Nyumbani",research:"Utafiti"}};
     const elements=document.querySelectorAll('[data-i18n]');
     function setLanguage(lang){
       elements.forEach(el=>el.textContent=strings[lang][el.dataset.i18n]);
@@ -106,7 +108,6 @@
       if(e.target.id==='lang-en')setLanguage('en');
       if(e.target.id==='lang-sw')setLanguage('sw');
     });
-
     setLanguage('en');
   </script>
 </body>
