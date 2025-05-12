@@ -13,8 +13,6 @@
       --txt-muted:#666;
       --accent:#000;
       --font-serif:"Georgia","Times New Roman",serif;
-      --dot:8px;
-      --rail-offset:18px; /* distance from content edge to timeline rail */
     }
 
     body{font-family:var(--font-serif);background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.55}
@@ -32,14 +30,9 @@
     .lang-toggle span{margin-left:.35rem;padding:0 .2rem .05rem}
     .lang-toggle span.active{border-bottom:2px solid var(--accent)}
 
-    /* ---- TIMELINE ---- */
-    .timeline{position:relative;margin-top:2.5rem;padding-left:calc(var(--rail-offset)+var(--dot));}
-    .timeline::before{content:"";position:absolute;left:var(--rail-offset);top:0;bottom:0;width:1px;background:var(--txt-muted)}
-    .item{position:relative;margin-bottom:3rem}
-    .item::before{content:"";position:absolute;left:calc(var(--rail-offset) - var(--dot)/2 + .5px);top:.55rem;width:var(--dot);height:var(--dot);border-radius:50%;background:var(--accent)}
-
     /* ---- CARD ---- */
-    .card{display:block;border:2px solid var(--accent);padding:1rem 1.25rem;background:var(--bg);transition:box-shadow .2s,transform .15s}
+    .research-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:3rem}
+    .card{border:2px solid var(--accent);padding:1rem 1.25rem;background:var(--bg);transition:box-shadow .2s,transform .15s}
     .card:hover{box-shadow:4px 4px 0 var(--accent);transform:translate(-2px,-2px)}
 
     .title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.4rem}
@@ -54,7 +47,6 @@
     @media(max-width:640px){
       .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
       nav ul{gap:1.25rem;font-size:1rem}
-      :root{--rail-offset:14px;--dot:7px}
       .title{font-size:.95rem}
     }
   </style>
@@ -75,18 +67,15 @@
       </div>
     </header>
 
-    <!-- TIMELINE LIST -->
-    <section class="timeline">
-      <div class="item">
-        <a class="card" href="gemma2.html">
-          <div class="title-row">
-            <h3 class="title">Gemma 2 Swahili: State-of-the-Art Swahili LLM</h3>
-            <span class="date">May&nbsp;1, 2025</span>
-          </div>
-          <p class="teaser">Our flagship open-source language model family bringing frontier AI capabilities to the Swahili-speaking world.</p>
-        </a>
-      </div>
-      <!-- replicate .item blocks for future research posts -->
+    <!-- RESEARCH LIST -->
+    <section class="research-list">
+      <a class="card" href="gemma2.html">
+        <div class="title-row">
+          <h3 class="title">Gemma 2 Swahili: State-of-the-Art Swahili LLM</h3>
+          <span class="date">May&nbsp;1, 2025</span>
+        </div>
+        <p class="teaser">Our flagship open-source language model family bringing frontier AI capabilities to the Swahili-speaking world.</p>
+      </a>
     </section>
 
     <!-- FOOTER -->
@@ -96,8 +85,8 @@
     </footer>
   </div>
 
+  <!-- simple i18n toggle (optional) -->
   <script>
-    /* simple i18n toggle (optional) */
     const strings={en:{home:"Home",research:"Research"},sw:{home:"Nyumbani",research:"Utafiti"}};
     const els=document.querySelectorAll('[data-i18n]');
     function setL(l){els.forEach(e=>e.textContent=strings[l][e.dataset.i18n]);document.querySelectorAll('.lang-toggle span').forEach(s=>s.classList.remove('active'));document.getElementById('lang-'+l).classList.add('active');}
