@@ -24,6 +24,7 @@
       font-size:16px;
       line-height:1.55;
     }
+    /* default links no underline */
     a{color:inherit;text-decoration:none}
     .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
 
@@ -34,7 +35,7 @@
     nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
     nav li{position:relative;padding-bottom:.2rem}
     nav li.active::after,nav li:hover::after{
-      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent);
     }
     .brand a,nav a{text-decoration:none}
 
@@ -62,6 +63,8 @@
       gap:.5rem;
       font-size:.95rem;
     }
+    /* underline only footer link */
+    footer a{text-decoration:underline}
 
     /* ---- MOBILE ---- */
     @media(max-width:640px){
