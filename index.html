@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nadhari AI Lab (Ν)</title>
   <style>
-    /* ----------  RESET & TOKENS  ---------- */
+    /* ---------- RESET & TOKENS ---------- */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#f1f0ec;--txt:#000;--txt-muted:#555;--accent:#000;--font-serif:"Georgia","Times New Roman",serif}
 
@@ -13,26 +13,28 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
 
-    /* ----------  HEADER  ---------- */
+    /* ---------- HEADER ---------- */
     header{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
     .brand{font-size:2rem;font-weight:600}
 
     nav{flex:1}
     nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
-    nav li{position:relative;padding-bottom:.2rem;cursor:pointer}
-    nav li.active::after,nav li:hover::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)}
+    nav li{position:relative;padding-bottom:.2rem}
+    nav li.active::after,nav li:hover::after{
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)
+    }
 
-    .lang-toggle{font-size:.9rem;cursor:pointer;margin-left:auto;white-space:nowrap}
+    .lang-toggle{font-size:.9rem;margin-left:auto;white-space:nowrap;cursor:pointer}
     .lang-toggle span{margin-left:.35rem;padding:0 .2rem .05rem}
     .lang-toggle span.active{border-bottom:2px solid var(--accent)}
 
-    /* ----------  MAIN  ---------- */
+    /* ---------- MAIN ---------- */
     main{margin-top:2.5rem;max-width:42rem;font-size:1.125rem}
 
-    /* ----------  FOOTER  ---------- */
+    /* ---------- FOOTER ---------- */
     footer{border-top:1px solid var(--txt-muted);margin-top:5rem;padding:1.25rem 0 2.5rem;display:flex;justify-content:space-between;font-size:.95rem;flex-wrap:wrap;gap:.5rem}
 
-    /* ----------  MOBILE  ---------- */
+    /* ---------- MOBILE ---------- */
     @media(max-width:640px){
       .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
       nav ul{gap:1.25rem;font-size:1rem}
@@ -43,10 +45,10 @@
 </head>
 <body>
   <div class="container">
-    <!-- HEADER -->
     <header>
       <div class="brand">Nadhari AI Lab (Ν)</div>
 
+      <!-- NAV -->
       <nav>
         <ul>
           <li id="nav-home" class="active" data-i18n="home"></li>
@@ -54,12 +56,13 @@
         </ul>
       </nav>
 
+      <!-- language toggle -->
       <div class="lang-toggle" id="langToggle">
         <span id="lang-en" class="active">EN</span> | <span id="lang-sw">SW</span>
       </div>
     </header>
 
-    <!-- MAIN -->
+    <!-- MAIN CONTENT -->
     <main id="mainContent">
       <p data-i18n="intro">
         Nadhari AI Lab is advancing frontier Swahili-native AI foundation models and tools, enabling researchers, developers, and businesses across Africa to build intelligent applications that serve millions in their own language.
@@ -73,12 +76,23 @@
     </footer>
   </div>
 
-  <!-- ----------  SIMPLE I18N ---------- -->
+  <!-- ---------- SIMPLE I18N ---------- -->
   <script>
-    const strings={en:{home:"Home",research:"Research",intro:"Nadhari AI Lab is advancing frontier Swahili-native AI foundation models and tools, enabling researchers, developers, and businesses across Africa to build intelligent applications that serve millions in their own language."},sw:{home:"Nyumbani",research:"Utafiti",intro:"Nadhari AI Lab inaendeleza modeli za msingi za AI zilizoasili katika Kiswahili na zana zinazohusiana, kuwapatia watafiti, watengenezaji na biashara barani Afrika uwezo wa kujenga matumizi mahiri yanayohudumia mamilioni kwa lugha yao."}};
+    const strings={
+      en:{home:"Home",research:"Research",intro:"Nadhari AI Lab is advancing frontier Swahili-native AI foundation models and tools, enabling researchers, developers, and businesses across Africa to build intelligent applications that serve millions in their own language."},
+      sw:{home:"Nyumbani",research:"Utafiti",intro:"Nadhari AI Lab inaendeleza modeli za msingi za AI zilizoasili katika Kiswahili na zana zinazohusiana, kuwapatia watafiti, watengenezaji na biashara barani Afrika uwezo wa kujenga matumizi mahiri yanayohudumia mamilioni kwa lugha yao."}
+    };
+
     const elements=document.querySelectorAll('[data-i18n]');
-    function setLanguage(lang){elements.forEach(el=>el.textContent=strings[lang][el.dataset.i18n]);document.querySelectorAll('.lang-toggle span').forEach(s=>s.classList.remove('active'));document.getElementById(`lang-${lang}`).classList.add('active');}
-    document.getElementById('langToggle').addEventListener('click',e=>{if(e.target.id==='lang-en')setLanguage('en');if(e.target.id==='lang-sw')setLanguage('sw');});
+    function setLanguage(lang){
+      elements.forEach(el=>el.textContent=strings[lang][el.dataset.i18n]);
+      document.querySelectorAll('.lang-toggle span').forEach(s=>s.classList.remove('active'));
+      document.getElementById(`lang-${lang}`).classList.add('active');
+    }
+    document.getElementById('langToggle').addEventListener('click',e=>{
+      if(e.target.id==='lang-en')setLanguage('en');
+      if(e.target.id==='lang-sw')setLanguage('sw');
+    });
     setLanguage('en');
   </script>
 </body>
