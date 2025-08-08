@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research – Nadhari AI Lab</title>
-
   <style>
     /* ---- TOKENS ---- */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -15,7 +14,6 @@
       --accent:#000;
       --font-serif:"Georgia","Times New Roman",serif;
     }
-
     body{
       font-family:var(--font-serif);
       background:var(--bg);
@@ -27,7 +25,6 @@
     /* default links no underline */
     a{color:inherit;text-decoration:none}
     .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
-
     /* ---- HEADER ---- */
     header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
     .brand{font-size:2rem;font-weight:600}
@@ -38,7 +35,6 @@
       content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent);
     }
     .brand a,nav a{text-decoration:none}
-
     /* ---- CARD ---- */
     .research-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:3rem}
     .card{
@@ -48,10 +44,8 @@
       transition:box-shadow .2s,transform .15s;
     }
     .card:hover{box-shadow:4px 4px 0 var(--accent);transform:translate(-2px,-2px)}
-
     .title{font-size:1rem;font-weight:600;line-height:1.35;margin-bottom:.4rem}
     .teaser{font-size:.9rem;color:var(--txt-muted)}
-
     /* ---- FOOTER ---- */
     footer{
       border-top:1px solid var(--txt-muted);
@@ -65,7 +59,6 @@
     }
     /* underline only footer link */
     footer a{text-decoration:underline}
-
     /* ---- MOBILE ---- */
     @media(max-width:640px){
       .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
@@ -76,7 +69,6 @@
 </head>
 <body>
   <div class="container">
-
     <!-- HEADER -->
     <header>
       <div class="brand"><a href="index.html">Nadhari AI Lab </a></div>
@@ -87,21 +79,22 @@
         </ul>
       </nav>
     </header>
-
     <!-- RESEARCH LIST -->
     <section class="research-list">
+      <a class="card" href="agrigemma3n.html">
+        <h3 class="title">AgriGemma-3n: On-Device Agricultural Intelligence</h3>
+        <p class="teaser">Multimodal AI models for crop disease diagnosis that run directly on farmers' devices, bridging the agricultural knowledge gap.</p>
+      </a>
       <a class="card" href="gemma2.html">
         <h3 class="title">Gemma 2 Swahili: State-of-the-Art Swahili LLMs</h3>
         <p class="teaser">Our flagship open-source language model family bringing frontier AI capabilities to the Swahili-speaking world.</p>
       </a>
     </section>
-
     <!-- FOOTER -->
     <footer>
       <div>Nadhari AI Lab</div>
       <div>X/Twitter: <a href="https://twitter.com/NadhariAI" target="_blank" rel="noopener">@NadhariAI</a></div>
     </footer>
-
   </div>
 </body>
 </html>
