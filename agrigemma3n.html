@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriGemma-3n: On-Device Agricultural Intelligence – Nadhari AI Lab</title>
+  <style>
+    /* ---- TOKENS ---- */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f1f0ec;
+      --txt:#000;
+      --txt-muted:#666;
+      --accent:#000;
+      --font-serif:"Georgia","Times New Roman",serif;
+    }
+    body{
+      font-family:var(--font-serif);
+      background:var(--bg);
+      color:var(--txt);
+      -webkit-font-smoothing:antialiased;
+      font-size:16px;
+      line-height:1.65;
+    }
+    /* default links have no underline */
+    a{color:inherit;text-decoration:none}
+    strong{font-weight:600}
+    .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    /* ---- HEADER ---- */
+    header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+    .brand{font-size:2rem;font-weight:600}
+    nav{flex:1}
+    nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
+    nav li{position:relative;padding-bottom:.2rem}
+    nav li.active::after,nav li:hover::after{
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)
+    }
+    .brand a,nav a{text-decoration:none}
+    /* ---- ARTICLE STYLES ---- */
+    article{margin-top:2.5rem;max-width:48rem}
+    h1{font-size:2.5rem;line-height:1.2;margin-bottom:1rem}
+    .subtitle{font-size:1.125rem;color:var(--txt-muted);margin-bottom:2.5rem}
+    article p{font-size:1.125rem;margin-bottom:1.5rem}
+    article h2{font-size:1.75rem;margin:3rem 0 1.5rem;font-weight:600}
+    article h3{font-size:1.25rem;margin:2rem 0 1rem;font-weight:600}
+    article ul,article ol{margin:0 0 1.5rem 2rem;font-size:1.125rem}
+    article li{margin-bottom:.5rem}
+    article img{width:100%;height:auto;margin:2rem 0}
+    article a{text-decoration:underline}
+    /* ---- BUTTONS ---- */
+    .button-group{display:flex;gap:1rem;margin:2rem 0;flex-wrap:wrap}
+    .button{
+      display:inline-block;
+      border:2px solid var(--accent);
+      padding:.75rem 1.5rem;
+      font-size:1rem;
+      background:var(--bg);
+      text-decoration:none!important;
+      transition:all .2s;
+    }
+    .button:hover{background:var(--accent);color:var(--bg)}
+    /* ---- VIDEO EMBED ---- */
+    .video-container{
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+      margin:2rem 0;
+      background:#000;
+    }
+    .video-container iframe{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    }
+    /* ---- FOOTER ---- */
+    footer{
+      border-top:1px solid var(--txt-muted);
+      margin-top:5rem;
+      padding:1.25rem 0 2.5rem;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:.5rem;
+      font-size:.95rem;
+    }
+    /* underline only footer link */
+    footer a{text-decoration:underline}
+    /* ---- MOBILE ---- */
+    @media(max-width:640px){
+      .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
+      nav ul{gap:1.25rem;font-size:1rem}
+      h1{font-size:2rem}
+      article p,article ul,article ol{font-size:1rem}
+      .button{padding:.65rem 1.25rem;font-size:.95rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="brand"><a href="index.html">Nadhari AI Lab</a></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="research.html">Research</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ARTICLE -->
+    <article>
+      <h1>AgriGemma-3n: On-Device Agricultural Intelligence</h1>
+      <p class="subtitle">Transforming crop disease diagnosis with multimodal AI that runs directly on farmers' devices</p>
+
+      <img src="images/agri-cover.png" alt="AgriGemma-3n model visualization" />
+
+      <div class="button-group">
+        <a href="https://huggingface.co/collections/Nadhari/agrigemma-3n-6893b7900bca2c482381e8c7" class="button" target="_blank" rel="noopener">Hugging Face Collection</a>
+        <a href="https://github.com/nadhari/AgriGemma-3n" class="button" target="_blank" rel="noopener">GitHub Repository</a>
+      </div>
+
+      <h2>Introduction</h2>
+      
+      <p>Every year, crop diseases destroy approximately 20-40% of global agricultural production, translating to economic losses exceeding $220 billion. For smallholder farmers in developing regions, these losses can mean the difference between prosperity and poverty. While agricultural experts exist, their reach is limited. For instance in Sub-Saharan Africa, the ratio of extension workers to farmers can be as low as 1:1000.</p>
+
+      <p>Traditional computer vision approaches to crop disease diagnosis, while technically impressive, fail to bridge the knowledge gap. They can identify diseases but cannot engage in the nuanced, conversational support farmers need: understanding symptoms, explaining disease progression, recommending context-appropriate treatments, and adapting advice to local conditions.</p>
+
+      <h2>The AgriGemma-3n Model Suite</h2>
+
+      <p>AgriGemma-3n transforms crop disease diagnosis from a classification problem into a comprehensive agricultural advisory system. Built on Google's efficient Gemma-3n architecture, our models combine:</p>
+
+      <ul>
+        <li><strong>Visual Understanding</strong>: Fine-tuned to recognize crop diseases from images with high precision</li>
+        <li><strong>Domain Expertise</strong>: Trained on extensive agricultural knowledge covering diagnosis, prevention, and treatment strategies</li>
+        <li><strong>Conversational Intelligence</strong>: Capable of multi-turn discussions that mirror consultations with agricultural experts</li>
+        <li><strong>On-Device Deployment</strong>: Optimized to run on mobile devices with limited connectivity</li>
+      </ul>
+
+      <p>The model suite includes two variants:</p>
+      <ul>
+        <li><strong>AgriGemma-3n-E2B-it</strong>: Maximum performance variant for tablets and newer smartphones</li>
+        <li><strong>AgriGemma-3n-E4B-it</strong>: Efficiency-optimized variant for older devices and edge deployment</li>
+      </ul>
+
+      <h2>Training and Dataset</h2>
+
+      <p>We fine-tuned the Gemma-3n models using a comprehensive LoRA-based strategy that enables the model to learn domain-specific visual features critical for accurate diagnosis while maintaining conversational abilities. Unlike conventional approaches that freeze visual encoders during fine-tuning, we recognized that agricultural images present unique challenges—subtle disease symptoms, similar-looking conditions across different crops, and fine-grained visual patterns that general-purpose encoders struggle to differentiate.</p>
+
+      <img src="images/cddm.png" alt="CDDM Dataset visualization" />
+
+      <p>We used <strong>9,000</strong> samples from the Crop Disease Domain Multimodal Dataset (<a href="https://arxiv.org/pdf/2503.06973v1" target="_blank" rel="noopener">CDDM</a>). The complete dataset contains:</p>
+
+      <ul>
+        <li><strong>137,000 images</strong> spanning 60 disease categories across 16 major crops</li>
+        <li><strong>1 million Q&A pairs</strong> covering diagnosis, prevention, and treatment</li>
+        <li>Expert-validated annotations</li>
+        <li>Balanced distribution across crop types and diseases</li>
+      </ul>
+
+      <h2>Multimodal Capabilities</h2>
+
+      <p>AgriGemma-3n is a truly multimodal model that can process both images and text, enabling farmers to simply take a photo of their crops and ask questions in natural language. The models run entirely on-device after initial download, ensuring privacy and functionality even in areas with limited internet connectivity.</p>
+
+      <h2>Live Demonstrations</h2>
+
+      <h3>Mobile Demo</h3>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/l7n7PV4ruhY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <h3>Desktop Demo (Ollama)</h3>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/nerN_UOIznw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <p>For detailed instructions on running these models locally on mobile apps or desktop, please visit our <a href="https://github.com/nadhari/AgriGemma-3n" target="_blank" rel="noopener">GitHub repository</a>.</p>
+
+      <h2>Impact and Future</h2>
+
+      <p>AgriGemma-3n demonstrates that specialized, efficient AI models can address real-world challenges faced by billions of people globally. By focusing on agricultural intelligence, we're not just building better models—we're creating tools for empowerment, economic development, and food security.</p>
+
+      <p>The future of AI isn't just about achieving higher scores on benchmarks. It's about ensuring that a farmer in rural Kenya can diagnose crop diseases as effectively as one in California. With Gemma-3n's efficient architecture and our specialized fine-tuning approaches, that future is here today, running on the devices people already own, solving the problems they actually face.</p>
+
+    </article>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>Nadhari AI Lab</div>
+      <div>X/Twitter: <a href="https://twitter.com/NadhariAI" target="_blank" rel="noopener">@NadhariAI</a></div>
+    </footer>
+  </div>
+</body>
+</html>
