@@ -135,8 +135,8 @@
 
     <!-- ARTICLE -->
     <article>
-      <h1>Gemma-3n-Swahili: On-Device Universal Swahili AI Assistant</h1>
-      <p class="subtitle">Bringing state-of-the-art language understanding to 200+ million Swahili speakers</p>
+      <h1>Gemma-3n-Swahili: On-Device Swahili AI Assistant</h1>
+      <p class="subtitle">Bringing state-of-the-art Swahili LLMs to 200+ million Swahili speakers</p>
 
       <img src="images/swagem.png" alt="Gemma-3n-Swahili model visualization" />
 
@@ -147,16 +147,16 @@
 
       <h2>Introduction</h2>
       
-      <p>The democratization of AI technology stands at a critical juncture. While large language models have revolutionized how we interact with technology, their benefits remain unevenly distributed across domains and languages. For the 100+ million Swahili speakers across East Africa, language models often struggle with nuanced understanding and technical expression in their native tongue.</p>
+      <p>Despite being spoken by over 200 million people across Sub-Saharan Africa, current AI models struggle with Swahili comprehension and instruction following. These limitations manifest in several critical ways: models fail to maintain cultural understanding essential for meaningful communication, cannot handle the code-switching that characterizes modern Swahili usage, lack specialized vocabulary for emerging technological concepts, and demonstrate poor performance in both technical and creative writing tasks in Swahili. This gap in language support effectively excludes a significant portion of the African continent from accessing advanced AI capabilities in their native language.</p>
 
       <h2>The Model Suite</h2>
 
-      <p>Gemma-3n-Swahili represents a paradigm shift in how we approach low-resource language modeling. Rather than treating Swahili as one language among many, we've created models that excel specifically in Swahili while maintaining the ability to bridge to other languages when needed.</p>
+      <p>We are excited to announce the release of Gemma-3n0Swahili preview, a comprehensive suite of multimodal Gemma-3n language models specifically adapted for Swahili language understanding and generation.</p>
 
       <p>Our model suite includes:</p>
       <ul>
-        <li><strong>Gemma-3n-Swahili-E2B-it</strong>: Optimal for general Swahili applications with superior language understanding</li>
-        <li><strong>Gemma-3n-Swahili-E4B-it</strong>: Balanced performance for resource-constrained environments</li>
+        <li><strong>Gemma-3n-Swahili-E2B-it</strong></li>
+        <li><strong>Gemma-3n-Swahili-E4B-it</strong></li>
       </ul>
 
       <h2>Dataset and Training</h2>
@@ -165,7 +165,6 @@
 
       <p>Key dataset characteristics:</p>
       <ul>
-        <li>Total tokens: 16,273,709 with average of 242.83 tokens per example</li>
         <li>Diverse content spanning technical, creative, and professional domains</li>
         <li>Natural language flow with appropriate cultural context</li>
         <li>Content distribution across instructional queries, analysis tasks, creative writing, technical content, and cultural knowledge</li>
@@ -179,6 +178,7 @@
         <li><strong>Technical Proficiency</strong>: Handles technical and professional content in Swahili</li>
         <li><strong>Instruction Following</strong>: Superior understanding and execution of complex instructions</li>
         <li><strong>Creative Writing</strong>: Generates stories, poems, and creative content with natural flow</li>
+        <li><strong>On-Device</strong>: The models can run locally, a feature useful for both maximizing user privacy and accessibility in internet constrained locations</li>
       </ul>
 
       <h2>Sample Response Comparison</h2>
@@ -197,8 +197,8 @@
             Mwanafunzi ana kalamu 15.<br><br>
             Tujue ana kalamu ngapi zaidi ya daftari:<br>
             Ana kalamu 7 zaidi ya daftari.<br><br>
-            Tupange equation:<br>
-            <span class="highlight">Kila daftari lina kalamu 7 kidogo.</span> Kuna kalamu 15, na anahitaji kalamu 7 zaidi ya daftari. Hiyo inamaanisha daftari ni: 15 - 7 = 8.<br><br>
+            <span class="highlight">Tupange equation</span>:<br>
+            Kila daftari lina kalamu 7 kidogo. Kuna kalamu 15, na anahitaji kalamu 7 zaidi ya daftari. Hiyo inamaanisha daftari ni: 15 - 7 = 8.<br><br>
             Jibu:<br>
             Mwanafunzi ana daftari 8.<br><br>
             <span class="highlight">Naf sikuza:</span><br>
@@ -243,11 +243,9 @@
 
       <h2>Conclusion</h2>
 
-      <p>Gemma-3n-Swahili demonstrates that specialized, efficient AI models can address real-world challenges faced by millions of people globally. By focusing on linguistic inclusion, we're not just building better models—we're creating tools for empowerment, economic development, and cultural preservation.</p>
-
       <p>This is a preview release fine-tuned on 10,000 samples. We will be fine-tuning on the complete dataset and making further improvements in the coming weeks to deliver even better Swahili language understanding and generation capabilities.</p>
 
-      <p>The future of AI isn't just about achieving higher scores on benchmarks. It's about ensuring that a student in Dar es Salaam can access the same quality of AI-powered education as one in London. With Gemma 3n's efficient architecture and our specialized fine-tuning approaches, that future is here today, running on the devices people already own, speaking the languages they already speak.</p>
+      <p>We believe that in the near future very powerful models generalized for any applications will be able to run locally on-device, maximizing both human privacy and agency, as well as enhancing human intelligence augmentation.</p>
 
     </article>
 
