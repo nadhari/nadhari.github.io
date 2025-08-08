@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemma-3n-Swahili: On-Device Universal Swahili AI Assistant – Nadhari AI Lab</title>
+  <style>
+    /* ---- TOKENS ---- */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f1f0ec;
+      --txt:#000;
+      --txt-muted:#666;
+      --accent:#000;
+      --font-serif:"Georgia","Times New Roman",serif;
+    }
+    body{
+      font-family:var(--font-serif);
+      background:var(--bg);
+      color:var(--txt);
+      -webkit-font-smoothing:antialiased;
+      font-size:16px;
+      line-height:1.65;
+    }
+    /* default links have no underline */
+    a{color:inherit;text-decoration:none}
+    strong{font-weight:600}
+    .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    /* ---- HEADER ---- */
+    header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+    .brand{font-size:2rem;font-weight:600}
+    nav{flex:1}
+    nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
+    nav li{position:relative;padding-bottom:.2rem}
+    nav li.active::after,nav li:hover::after{
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)
+    }
+    .brand a,nav a{text-decoration:none}
+    /* ---- ARTICLE STYLES ---- */
+    article{margin-top:2.5rem;max-width:48rem}
+    h1{font-size:2.5rem;line-height:1.2;margin-bottom:1rem}
+    .subtitle{font-size:1.125rem;color:var(--txt-muted);margin-bottom:2.5rem}
+    article p{font-size:1.125rem;margin-bottom:1.5rem}
+    article h2{font-size:1.75rem;margin:3rem 0 1.5rem;font-weight:600}
+    article h3{font-size:1.25rem;margin:2rem 0 1rem;font-weight:600}
+    article ul,article ol{margin:0 0 1.5rem 2rem;font-size:1.125rem}
+    article li{margin-bottom:.5rem}
+    article img{width:100%;height:auto;margin:2rem 0}
+    article a{text-decoration:underline}
+    /* ---- BUTTONS ---- */
+    .button-group{display:flex;gap:1rem;margin:2rem 0;flex-wrap:wrap}
+    .button{
+      display:inline-block;
+      border:2px solid var(--accent);
+      padding:.75rem 1.5rem;
+      font-size:1rem;
+      background:var(--bg);
+      text-decoration:none!important;
+      transition:all .2s;
+    }
+    .button:hover{background:var(--accent);color:var(--bg)}
+    /* ---- RESPONSE COMPARISON ---- */
+    .comparison{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0}
+    .response{
+      background:#fff;
+      border:1px solid #ddd;
+      padding:1.5rem;
+      border-radius:4px;
+    }
+    .response h4{font-size:1rem;margin-bottom:1rem;font-weight:600}
+    .response .model-name{color:var(--txt-muted);font-size:.875rem;margin-bottom:.5rem}
+    .response .content{font-size:.95rem;line-height:1.6}
+    .prompt-box{
+      background:#f8f8f8;
+      border:1px solid #ddd;
+      padding:1rem;
+      margin:1rem 0;
+      font-size:1rem;
+      font-style:italic;
+    }
+    .highlight{background:#ffeb3b;padding:2px 4px}
+    /* ---- VIDEO EMBED ---- */
+    .video-container{
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+      margin:2rem 0;
+      background:#000;
+    }
+    .video-container iframe{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    }
+    /* ---- FOOTER ---- */
+    footer{
+      border-top:1px solid var(--txt-muted);
+      margin-top:5rem;
+      padding:1.25rem 0 2.5rem;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:.5rem;
+      font-size:.95rem;
+    }
+    /* underline only footer link */
+    footer a{text-decoration:underline}
+    /* ---- MOBILE ---- */
+    @media(max-width:640px){
+      .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
+      nav ul{gap:1.25rem;font-size:1rem}
+      h1{font-size:2rem}
+      article p,article ul,article ol{font-size:1rem}
+      .button{padding:.65rem 1.25rem;font-size:.95rem}
+      .comparison{grid-template-columns:1fr;gap:1.5rem}
+      .response{padding:1rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="brand"><a href="index.html">Nadhari AI Lab</a></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="research.html">Research</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ARTICLE -->
+    <article>
+      <h1>Gemma-3n-Swahili: On-Device Universal Swahili AI Assistant</h1>
+      <p class="subtitle">Bringing state-of-the-art language understanding to 200+ million Swahili speakers</p>
+
+      <img src="images/swagem.png" alt="Gemma-3n-Swahili model visualization" />
+
+      <div class="button-group">
+        <a href="https://huggingface.co/collections/Nadhari/gemma-3n-swahili-6893b845118de47136343522" class="button" target="_blank" rel="noopener">Hugging Face Collection</a>
+        <a href="https://github.com/nadhari/Gemma-3n-Swahili" class="button" target="_blank" rel="noopener">GitHub Repository</a>
+      </div>
+
+      <h2>Introduction</h2>
+      
+      <p>The democratization of AI technology stands at a critical juncture. While large language models have revolutionized how we interact with technology, their benefits remain unevenly distributed across domains and languages. For the 100+ million Swahili speakers across East Africa, language models often struggle with nuanced understanding and technical expression in their native tongue.</p>
+
+      <h2>The Model Suite</h2>
+
+      <p>Gemma-3n-Swahili represents a paradigm shift in how we approach low-resource language modeling. Rather than treating Swahili as one language among many, we've created models that excel specifically in Swahili while maintaining the ability to bridge to other languages when needed.</p>
+
+      <p>Our model suite includes:</p>
+      <ul>
+        <li><strong>Gemma-3n-Swahili-E2B-it</strong>: Optimal for general Swahili applications with superior language understanding</li>
+        <li><strong>Gemma-3n-Swahili-E4B-it</strong>: Balanced performance for resource-constrained environments</li>
+      </ul>
+
+      <h2>Dataset and Training</h2>
+
+      <p>We leveraged the Bactrian-X dataset, carefully extracting and validating high-quality Swahili instruction-response pairs. From the original 67,017 pairs, we fine-tuned on <strong>10,000 samples</strong> selected for quality and diversity.</p>
+
+      <p>Key dataset characteristics:</p>
+      <ul>
+        <li>Total tokens: 16,273,709 with average of 242.83 tokens per example</li>
+        <li>Diverse content spanning technical, creative, and professional domains</li>
+        <li>Natural language flow with appropriate cultural context</li>
+        <li>Content distribution across instructional queries, analysis tasks, creative writing, technical content, and cultural knowledge</li>
+      </ul>
+
+      <h2>Key Capabilities</h2>
+
+      <ul>
+        <li><strong>Pure Swahili Generation</strong>: Maintains language consistency without code-switching unless requested</li>
+        <li><strong>Cultural Understanding</strong>: Preserves East African context and idiomatic expressions</li>
+        <li><strong>Technical Proficiency</strong>: Handles technical and professional content in Swahili</li>
+        <li><strong>Instruction Following</strong>: Superior understanding and execution of complex instructions</li>
+        <li><strong>Creative Writing</strong>: Generates stories, poems, and creative content with natural flow</li>
+      </ul>
+
+      <h2>Sample Response Comparison</h2>
+
+      <div class="prompt-box">
+        <strong>Prompt:</strong> Mwanafunzi ana kalamu 7 zaidi ya daftari. Ana kalamu 15. Ana daftari ngapi?
+      </div>
+
+      <div class="comparison">
+        <div class="response">
+          <h4>Base Model</h4>
+          <div class="model-name">gemma-3n-E2B-it-Q8_0</div>
+          <div class="content">
+            Haya, twafanya hatua kwa hatua:<br><br>
+            Tujue mwanafunzi ana kalamu ngapi:<br>
+            Mwanafunzi ana kalamu 15.<br><br>
+            Tujue ana kalamu ngapi zaidi ya daftari:<br>
+            Ana kalamu 7 zaidi ya daftari.<br><br>
+            Tupange equation:<br>
+            <span class="highlight">Kila daftari lina kalamu 7 kidogo.</span> Kuna kalamu 15, na anahitaji kalamu 7 zaidi ya daftari. Hiyo inamaanisha daftari ni: 15 - 7 = 8.<br><br>
+            Jibu:<br>
+            Mwanafunzi ana daftari 8.<br><br>
+            <span class="highlight">Naf sikuza:</span><br>
+            Mwanafunzi ana kalamu 15, na anahitaji kalamu 7 zaidi ya daftari. Hiyo inamaanisha kuwa daftari lina kalamu 15 - 7 = 8.
+          </div>
+        </div>
+
+        <div class="response">
+          <h4>Our Model</h4>
+          <div class="model-name">gemma-3n-swahili-E2B-it-Q8_0</div>
+          <div class="content">
+            Hatua 1: Mwanafunzi ana kalamu 7 zaidi ya daftari lake.<br><br>
+            Hatua 2: Mwanafunzi ana kalamu 15.<br><br>
+            Hatua 3: Mwanafunzi ana kalamu 7 zaidi ya daftari lake, kwa hiyo daftari lake linakuwa 15 - 7 = 8.<br><br>
+            Hatua 4: Mwanafunzi ana daftari ngapi?<br><br>
+            Jibu: Mwanafunzi ana daftari 8.
+          </div>
+        </div>
+      </div>
+
+      <p>Notice how the base model mixes languages ("equation" instead of "mlingano") and creates non-existent Swahili words like "Naf sikuza". Our fine-tuned model maintains pure Swahili throughout while providing clear, logical steps to solve the problem.</p>
+
+      <h2>Performance Benchmarks</h2>
+
+      <h3>Swahili MMLU</h3>
+      <p>We evaluated on 500 samples from the Swahili MMLU benchmark, measuring comprehension across diverse subjects:</p>
+      <img src="images/overall_performance.png" alt="Swahili MMLU benchmark results" />
+
+      <h3>Translation Benchmarks</h3>
+      <p>Using 50 samples split evenly between Swahili-to-English and English-to-Swahili translation tasks, our models show significant improvements:</p>
+      <img src="images/translation_performance_comparison.png" alt="Translation performance comparison" />
+      <img src="images/translation_perplexity_comparison.png" alt="Translation perplexity comparison" />
+
+      <p>The benchmarks demonstrate transformative gains in cross-lingual understanding, with perplexity scores improving from 70.5 to 21.6 for English-to-Swahili translation, representing a 3x improvement in translation quality.</p>
+
+      <h2>Mobile Demo</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/K79-rfhQa-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <p>For detailed instructions on running these models locally on mobile apps or desktop, please visit our <a href="https://github.com/nadhari/Gemma-3n-Swahili" target="_blank" rel="noopener">GitHub repository</a>.</p>
+
+      <h2>Conclusion</h2>
+
+      <p>Gemma-3n-Swahili demonstrates that specialized, efficient AI models can address real-world challenges faced by millions of people globally. By focusing on linguistic inclusion, we're not just building better models—we're creating tools for empowerment, economic development, and cultural preservation.</p>
+
+      <p>This is a preview release fine-tuned on 10,000 samples. We will be fine-tuning on the complete dataset and making further improvements in the coming weeks to deliver even better Swahili language understanding and generation capabilities.</p>
+
+      <p>The future of AI isn't just about achieving higher scores on benchmarks. It's about ensuring that a student in Dar es Salaam can access the same quality of AI-powered education as one in London. With Gemma 3n's efficient architecture and our specialized fine-tuning approaches, that future is here today, running on the devices people already own, speaking the languages they already speak.</p>
+
+    </article>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>Nadhari AI Lab</div>
+      <div>X/Twitter: <a href="https://twitter.com/NadhariAI" target="_blank" rel="noopener">@NadhariAI</a></div>
+    </footer>
+  </div>
+</body>
+</html>
