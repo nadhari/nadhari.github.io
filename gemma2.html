@@ -45,22 +45,18 @@
     .hero{width:100%;border-radius:1rem;overflow:hidden;margin-bottom:1.75rem}
     .hero img{width:100%;display:block}
 
-    /* pills */
-    .link-row{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem}
-    .pill{
-      border:2px dotted var(--accent);
-      background:var(--pill-bg);
-      padding:.45rem 1rem;
-      font-size:.9rem;
-      font-weight:500;
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      cursor:pointer;
-      transition:background .15s;
-      text-decoration:none;
+    /* ---- BUTTONS (NEW STYLE) ---- */
+    .button-group{display:flex;gap:1rem;margin:2rem 0;flex-wrap:wrap}
+    .button{
+      display:inline-block;
+      border:2px solid var(--accent);
+      padding:.75rem 1.5rem;
+      font-size:1rem;
+      background:var(--bg);
+      text-decoration:none!important;
+      transition:all .2s;
     }
-    .pill:hover{background:#efefef}
+    .button:hover{background:var(--accent);color:var(--bg)}
 
     ul,ol{margin-left:1.25rem}
 
@@ -91,6 +87,7 @@
       .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
       nav ul{gap:1.25rem;font-size:1rem}
       h1{font-size:1.3rem}      /* smaller headline on phones */
+      .button{padding:.65rem 1.25rem;font-size:.95rem}
     }
   </style>
 </head>
@@ -117,11 +114,11 @@
         <img src="images/klm.PNG" alt="Gemma 2 Swahili hero image">
       </div>
 
-      <!-- resource pills -->
-      <div class="link-row">
-        <a class="pill" href="https://www.kaggle.com/code/alfaxadeyembe/introducing-gemma-2-swahili" target="_blank" rel="noopener">📄 Kaggle</a>
-        <a class="pill" href="https://huggingface.co/Alfaxad" target="_blank" rel="noopener">🤗 Hugging&nbsp;Face</a>
-        <a class="pill" href="https://github.com/Alfaxad/gemma2-swahili-models" target="_blank" rel="noopener">GitHub</a>
+      <!-- resource buttons (NEW STYLE) -->
+      <div class="button-group">
+        <a href="https://www.kaggle.com/code/alfaxadeyembe/introducing-gemma-2-swahili" class="button" target="_blank" rel="noopener">📄 Kaggle</a>
+        <a href="https://huggingface.co/Alfaxad" class="button" target="_blank" rel="noopener">🤗 Hugging Face</a>
+        <a href="https://github.com/Alfaxad/gemma2-swahili-models" class="button" target="_blank" rel="noopener">GitHub</a>
       </div>
 
       <p>We were really fascinated by the <a href="https://developers.googleblog.com/en/advancing-multilingual-ai-with-gemma-2-and-a-150k-challenge/" target="_blank" rel="noopener">Gemma&nbsp;2 Japanese releases</a> last year, so much that we felt compelled to work on Swahili variations of Gemma&nbsp;2 models.</p>
