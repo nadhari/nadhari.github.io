@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducing The Swahili Thinking Dataset – Nadhari AI Lab</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f1f0ec;
+      --txt:#000;
+      --txt-muted:#666;
+      --accent:#000;
+      --font-serif:"Georgia","Times New Roman",serif;
+    }
+    body{
+      font-family:var(--font-serif);
+      background:var(--bg);
+      color:var(--txt);
+      -webkit-font-smoothing:antialiased;
+      font-size:16px;
+      line-height:1.65;
+    }
+    a{color:inherit;text-decoration:none}
+    strong{font-weight:600}
+    .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    
+    /* HEADER */
+    header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+    .brand{font-size:2rem;font-weight:600}
+    nav{flex:1;display:flex;justify-content:space-between;align-items:center}
+    nav ul{display:flex;gap:1.75rem;list-style:none;font-size:1.125rem}
+    nav li{position:relative;padding-bottom:.2rem}
+    nav li.active::after,nav li:hover::after{
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent)
+    }
+    .brand a,nav a{text-decoration:none}
+    
+    /* LANGUAGE TOGGLE */
+    .lang-toggle{
+      display:flex;
+      gap:.5rem;
+    }
+    .lang-btn{
+      background:var(--accent);
+      color:var(--bg);
+      border:none;
+      padding:.5rem .75rem;
+      cursor:pointer;
+      font-family:var(--font-serif);
+      font-size:.875rem;
+      transition:opacity .2s;
+    }
+    .lang-btn:hover{opacity:.8}
+    .lang-btn.active{background:var(--bg);color:var(--accent);border:2px solid var(--accent)}
+    
+    /* ARTICLE STYLES */
+    article{margin-top:2.5rem;max-width:48rem}
+    h1{font-size:2.5rem;line-height:1.2;margin-bottom:1rem}
+    .subtitle{font-size:1.125rem;color:var(--txt-muted);margin-bottom:2.5rem}
+    article p{font-size:1.125rem;margin-bottom:1.5rem}
+    article h2{font-size:1.75rem;margin:3rem 0 1.5rem;font-weight:600}
+    article h3{font-size:1.25rem;margin:2rem 0 1rem;font-weight:600}
+    article ul,article ol{margin:0 0 1.5rem 2rem;font-size:1.125rem}
+    article li{margin-bottom:.5rem}
+    article img{width:100%;height:auto;margin:2rem 0}
+    article a{text-decoration:underline}
+    .img-caption{
+      font-size:.95rem;
+      color:var(--txt-muted);
+      text-align:center;
+      margin-top:-.75rem;
+      margin-bottom:2rem;
+    }
+    
+    /* BUTTONS */
+    .button-group{display:flex;gap:1rem;margin:2rem 0;flex-wrap:wrap}
+    .button{
+      display:inline-block;
+      border:2px solid var(--accent);
+      padding:.75rem 1.5rem;
+      font-size:1rem;
+      background:var(--bg);
+      text-decoration:none;
+      transition:all .2s;
+    }
+    .button:hover{background:var(--accent);color:var(--bg)}
+    
+    /* CODE BLOCKS */
+    pre{
+      background:#2d2d2d;
+      color:#f8f8f2;
+      padding:1.25rem;
+      border-radius:4px;
+      overflow-x:auto;
+      margin:1.5rem 0;
+      font-size:.95rem;
+      line-height:1.5;
+    }
+    code{font-family:"Courier New",monospace}
+    
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--txt-muted);
+      margin-top:5rem;
+      padding:1.25rem 0 2.5rem;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:.5rem;
+      font-size:.95rem;
+    }
+    footer a{text-decoration:underline}
+    
+    /* LANGUAGE CONTENT */
+    .lang-content{display:none}
+    .lang-content.active{display:block}
+    
+    /* MOBILE */
+    @media(max-width:640px){
+      .brand{flex:0 0 100%;font-size:1.5rem;margin-bottom:.25rem}
+      nav{flex-direction:column;align-items:flex-start;gap:1rem}
+      nav ul{gap:1.25rem;font-size:1rem}
+      h1{font-size:2rem}
+      article p,article ul,article ol{font-size:1rem}
+      .button{padding:.65rem 1.25rem;font-size:.95rem}
+      .lang-toggle{margin-top:.5rem}
+      .lang-btn{padding:.4rem .6rem;font-size:.8rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand"><a href="index.html">Nadhari AI Lab</a></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="research.html">Research</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+          <button class="lang-btn" onclick="switchLang('sw')">SW</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ENGLISH CONTENT -->
+    <article class="lang-content active" id="content-en">
+      <h1>Introducing The Swahili Thinking Dataset</h1>
+      <p class="subtitle">The first open-source Swahili chain-of-thought reasoning dataset</p>
+
+      <img src="images/Swahili-Thinking-Dataset.png" alt="Swahili Thinking Dataset visualization" />
+
+      <div class="button-group">
+        <a href="https://huggingface.co/datasets/Nadhari/Swahili-Thinking" class="button" target="_blank" rel="noopener">HuggingFace Dataset</a>
+        <a href="https://github.com/nadhari" class="button" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <h2>Introduction</h2>
+      
+      <p>Today, we are excited to release the <strong>Swahili Thinking Dataset</strong>, the first open-source dataset for chain-of-thought reasoning in Swahili. This dataset contains 166 high-quality examples of conversational AI responses where models explicitly demonstrate their reasoning process before generating final answers.</p>
+
+      <p>While chain-of-thought reasoning datasets exist for major languages like English, French, and Spanish, African languages have been largely underrepresented in this critical area of AI development. The Swahili Thinking Dataset addresses this gap, enabling researchers and developers to build more capable Swahili language models that can think before they respond.</p>
+
+      <h2>Dataset Overview</h2>
+
+      <p>The dataset was created by professionally translating 200 English examples from the <a href="https://huggingface.co/datasets/HuggingFaceH4/Multilingual-Thinking" target="_blank" rel="noopener">HuggingFaceH4/Multilingual-Thinking</a> dataset using GPT-5 Pro, resulting in 166 successful translations. Each example demonstrates explicit reasoning in Swahili across diverse conversational scenarios.</p>
+
+      <h3>Dataset Structure</h3>
+
+      <p>Each example contains six fields following the Harmony response format:</p>
+
+      <ul>
+        <li><strong>reasoning_language</strong>: Always "Swahili"</li>
+        <li><strong>developer</strong>: System prompt in Swahili defining the assistant's role</li>
+        <li><strong>user</strong>: User query in Swahili</li>
+        <li><strong>analysis</strong>: Chain-of-thought reasoning process in Swahili</li>
+        <li><strong>final</strong>: Final response to user in Swahili</li>
+        <li><strong>messages</strong>: Formatted conversation with thinking field</li>
+      </ul>
+
+      <h2>Example Conversations</h2>
+
+      <img src="images/Thinky1.png" alt="Example 1: Currency exchange reasoning" />
+      <p class="img-caption">Example showing multi-step reasoning about currency exchange rates, demonstrating the model's ability to break down complex queries into logical steps.</p>
+
+      <img src="images/Thinky2.png" alt="Example 2: Location-based service reasoning" />
+      <p class="img-caption">The model reasons through how to help users find nearby grocery stores, considering multiple approaches and regional context.</p>
+
+      <img src="images/Thinky3.png" alt="Example 3: Book recommendation reasoning" />
+      <p class="img-caption">Detailed reasoning process for recommending historical fiction books, showing consideration of multiple criteria and diverse options.</p>
+
+      <h2>Loading the Dataset</h2>
+
+      <p>You can load the dataset directly from HuggingFace:</p>
+
+<pre><code>from datasets import load_dataset
+
+dataset = load_dataset("Nadhari/Swahili-Thinking", split="train")
+
+# Access first example
+example = dataset[0]
+print(example['user'])      # User query in Swahili
+print(example['analysis'])  # Chain-of-thought reasoning
+print(example['final'])     # Final response
+</code></pre>
+
+      <h2>Use Cases</h2>
+
+      <p>This dataset enables several important applications:</p>
+
+      <ul>
+        <li><strong>Fine-tuning Language Models</strong>: Train Swahili models to perform explicit reasoning before generating responses, improving accuracy and transparency</li>
+        <li><strong>Voice Assistants</strong>: Build Swahili AI assistants that can explain their reasoning process to users</li>
+        <li><strong>Educational Tools</strong>: Create AI tutors for Swahili-speaking students that demonstrate problem-solving approaches</li>
+        <li><strong>Research</strong>: Study multilingual reasoning patterns and cross-lingual transfer learning</li>
+        <li><strong>Low-Resource Language AI</strong>: Advance capabilities for African languages in modern AI systems</li>
+      </ul>
+
+      <h2>Dataset Statistics</h2>
+
+      <ul>
+        <li>Total examples: 166</li>
+        <li>Source: HuggingFaceH4/Multilingual-Thinking (English subset)</li>
+        <li>Translation model: GPT-5 Pro (gpt-5-pro-2025-10-06)</li>
+        <li>Average reasoning length: ~2,000 characters</li>
+        <li>Average response length: ~2,000 characters</li>
+        <li>Success rate: 83% (166 out of 200 attempted translations)</li>
+      </ul>
+
+      <h2>Future Plans</h2>
+
+      <p>This release is just the beginning. We plan to:</p>
+
+      <ul>
+        <li>Expand the dataset with additional examples across more domains</li>
+        <li>Include more complex reasoning tasks (mathematical, scientific, coding)</li>
+        <li>Create similar datasets for other African languages</li>
+        <li>Develop benchmark tasks for evaluating Swahili reasoning capabilities</li>
+      </ul>
+
+      <h2>Community Contributions</h2>
+
+      <p>We welcome contributions from the community. If you would like to help expand this dataset or have suggestions for improvement, please:</p>
+
+      <ul>
+        <li>Open an issue or discussion on our <a href="https://huggingface.co/datasets/Nadhari/Swahili-Thinking/discussions" target="_blank" rel="noopener">HuggingFace repository</a></li>
+        <li>Submit additional examples following the dataset format</li>
+        <li>Share your fine-tuned models using this dataset</li>
+        <li>Report any data quality issues</li>
+      </ul>
+
+      <h2>Citation</h2>
+
+      <p>If you use this dataset in your research, please cite:</p>
+
+<pre><code>@misc{swahili-thinking-dataset-2025,
+  title={Swahili Thinking Dataset},
+  author={Nadhari AI},
+  year={2025},
+  publisher={HuggingFace},
+  url={https://huggingface.co/datasets/Nadhari/Swahili-Thinking}
+}
+</code></pre>
+
+      <h2>Acknowledgments</h2>
+
+      <p>This work was made possible by the O'Shaughnessy Ventures Grant and builds upon the excellent <a href="https://huggingface.co/datasets/HuggingFaceH4/Multilingual-Thinking" target="_blank" rel="noopener">Multilingual-Thinking dataset</a> by HuggingFace H4. We are grateful for their contribution to the open-source AI community.</p>
+
+    </article>
+
+    <!-- SWAHILI CONTENT -->
+    <article class="lang-content" id="content-sw">
+      <h1>Kuanzisha Dataset ya Ufikiri wa Kiswahili</h1>
+      <p class="subtitle">Dataset ya kwanza ya wazi ya ufikiri wa mnyororo wa mawazo kwa Kiswahili</p>
+
+      <img src="images/Swahili-Thinking-Dataset.png" alt="Mfano wa Dataset ya Ufikiri wa Kiswahili" />
+
+      <div class="button-group">
+        <a href="https://huggingface.co/datasets/Nadhari/Swahili-Thinking" class="button" target="_blank" rel="noopener">Dataset ya HuggingFace</a>
+        <a href="https://github.com/nadhari" class="button" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <h2>Utangulizi</h2>
+      
+      <p>Leo, tunafuraha kutangaza <strong>Dataset ya Ufikiri wa Kiswahili</strong>, dataset ya kwanza ya wazi ya ufikiri wa mnyororo wa mawazo kwa Kiswahili. Dataset hii ina mifano 166 ya ubora wa juu ya majibu ya AI ya mazungumzo ambapo modeli huonyesha wazi mchakato wao wa kufikiri kabla ya kutoa majibu ya mwisho.</p>
+
+      <p>Ingawa datasets za ufikiri wa mnyororo wa mawazo zipo kwa lugha kuu kama Kiingereza, Kifaransa, na Kihispania, lugha za Afrika zimekuwa haziwakilishwi sana katika eneo hili muhimu la ukuzaji wa AI. Dataset ya Ufikiri wa Kiswahili inashughulikia pengo hili, ikiwezesha watafiti na wasanidi programu kujenga modeli za Kiswahili zenye uwezo zaidi ambazo zinaweza kufikiri kabla ya kujibu.</p>
+
+      <h2>Muhtasari wa Dataset</h2>
+
+      <p>Dataset iliundwa kwa kutafsiri kwa kitaalamu mifano 200 ya Kiingereza kutoka kwa dataset ya <a href="https://huggingface.co/datasets/HuggingFaceH4/Multilingual-Thinking" target="_blank" rel="noopener">HuggingFaceH4/Multilingual-Thinking</a> kwa kutumia GPT-5 Pro, ikiwa na matokeo ya tafsiri 166 zilizofanikiwa. Kila mfano huonyesha ufikiri wa wazi kwa Kiswahili katika mazingira tofauti ya mazungumzo.</p>
+
+      <h3>Muundo wa Dataset</h3>
+
+      <p>Kila mfano una sehemu sita zinazofuata muundo wa majibu wa Harmony:</p>
+
+      <ul>
+        <li><strong>reasoning_language</strong>: Daima "Swahili"</li>
+        <li><strong>developer</strong>: Maagizo ya mfumo kwa Kiswahili yanayoeleza jukumu la msaidizi</li>
+        <li><strong>user</strong>: Swali la mtumiaji kwa Kiswahili</li>
+        <li><strong>analysis</strong>: Mchakato wa ufikiri wa mnyororo wa mawazo kwa Kiswahili</li>
+        <li><strong>final</strong>: Jibu la mwisho kwa mtumiaji kwa Kiswahili</li>
+        <li><strong>messages</strong>: Mazungumzo yaliyopangwa na sehemu ya ufikiri</li>
+      </ul>
+
+      <h2>Mifano ya Mazungumzo</h2>
+
+      <img src="images/Thinky1.png" alt="Mfano 1: Ufikiri wa ubadilishaji wa sarafu" />
+      <p class="img-caption">Mfano unaonyesha ufikiri wa hatua nyingi kuhusu viwango vya ubadilishaji wa sarafu, ukionyesha uwezo wa modeli kugawanya maswali magumu katika hatua za kimantiki.</p>
+
+      <img src="images/Thinky2.png" alt="Mfano 2: Ufikiri wa huduma za eneo" />
+      <p class="img-caption">Modeli inafikiri jinsi ya kusaidia watumiaji kupata maduka ya vyakula karibu, ikizingatia njia nyingi na muktadha wa kikanda.</p>
+
+      <img src="images/Thinky3.png" alt="Mfano 3: Ufikiri wa mapendekezo ya vitabu" />
+      <p class="img-caption">Mchakato wa kina wa ufikiri wa kupendekeza vitabu vya hadithi za kihistoria, ukionyesha kuzingatia vigezo vingi na chaguzi tofauti.</p>
+
+      <h2>Kupakia Dataset</h2>
+
+      <p>Unaweza kupakia dataset moja kwa moja kutoka HuggingFace:</p>
+
+<pre><code>from datasets import load_dataset
+
+dataset = load_dataset("Nadhari/Swahili-Thinking", split="train")
+
+# Fikia mfano wa kwanza
+example = dataset[0]
+print(example['user'])      # Swali la mtumiaji kwa Kiswahili
+print(example['analysis'])  # Ufikiri wa mnyororo wa mawazo
+print(example['final'])     # Jibu la mwisho
+</code></pre>
+
+      <h2>Matumizi</h2>
+
+      <p>Dataset hii inaruhusu maombi muhimu kadhaa:</p>
+
+      <ul>
+        <li><strong>Kuboresha Modeli za Lugha</strong>: Fanya mafunzo ya modeli za Kiswahili kufanya ufikiri wa wazi kabla ya kutoa majibu, kuboresha usahihi na uwazi</li>
+        <li><strong>Wasaidizi wa Sauti</strong>: Jenga wasaidizi wa AI wa Kiswahili wanaoweza kueleza mchakato wao wa kufikiri kwa watumiaji</li>
+        <li><strong>Zana za Elimu</strong>: Unda wakufunzi wa AI kwa wanafunzi wazungumzao Kiswahili ambao huonyesha mbinu za kutatua matatizo</li>
+        <li><strong>Utafiti</strong>: Soma mifumo ya ufikiri wa lugha nyingi na ujifunzaji wa uhamisho wa lugha</li>
+        <li><strong>AI ya Lugha za Rasilimali Chache</strong>: Endeleza uwezo wa lugha za Afrika katika mifumo ya kisasa ya AI</li>
+      </ul>
+
+      <h2>Takwimu za Dataset</h2>
+
+      <ul>
+        <li>Jumla ya mifano: 166</li>
+        <li>Chanzo: HuggingFaceH4/Multilingual-Thinking (sehemu ya Kiingereza)</li>
+        <li>Modeli ya tafsiri: GPT-5 Pro (gpt-5-pro-2025-10-06)</li>
+        <li>Wastani wa urefu wa ufikiri: ~herufi 2,000</li>
+        <li>Wastani wa urefu wa jibu: ~herufi 2,000</li>
+        <li>Kiwango cha mafanikio: 83% (166 kati ya 200 tafsiri zilizojaribiwa)</li>
+      </ul>
+
+      <h2>Mipango ya Baadaye</h2>
+
+      <p>Toleo hili ni mwanzo tu. Tunapanga:</p>
+
+      <ul>
+        <li>Kupanua dataset na mifano ya ziada katika maeneo zaidi</li>
+        <li>Kujumuisha kazi ngumu zaidi za ufikiri (hisabati, kisayansi, usimbuaji)</li>
+        <li>Kuunda datasets sawa kwa lugha nyingine za Afrika</li>
+        <li>Kuendeleza kazi za kiwango cha kutathmini uwezo wa ufikiri wa Kiswahili</li>
+      </ul>
+
+      <h2>Michango ya Jumuiya</h2>
+
+      <p>Tunakaribisha michango kutoka kwa jumuiya. Ikiwa ungependa kusaidia kupanua dataset hii au una mapendekezo ya uboreshaji, tafadhali:</p>
+
+      <ul>
+        <li>Fungua suala au majadiliano kwenye <a href="https://huggingface.co/datasets/Nadhari/Swahili-Thinking/discussions" target="_blank" rel="noopener">hazina yetu ya HuggingFace</a></li>
+        <li>Wasilisha mifano ya ziada kufuata muundo wa dataset</li>
+        <li>Shiriki modeli zako zilizoboreshwa kwa kutumia dataset hii</li>
+        <li>Ripoti masuala yoyote ya ubora wa data</li>
+      </ul>
+
+      <h2>Nukuu</h2>
+
+      <p>Ikiwa unatumia dataset hii katika utafiti wako, tafadhali nukuu:</p>
+
+<pre><code>@misc{swahili-thinking-dataset-2025,
+  title={Swahili Thinking Dataset},
+  author={Nadhari AI},
+  year={2025},
+  publisher={HuggingFace},
+  url={https://huggingface.co/datasets/Nadhari/Swahili-Thinking}
+}
+</code></pre>
+
+      <h2>Shukrani</h2>
+
+      <p>Kazi hii ilifanyika kwa kutokana na Ruzuku ya O'Shaughnessy Ventures na inajengwa juu ya <a href="https://huggingface.co/datasets/HuggingFaceH4/Multilingual-Thinking" target="_blank" rel="noopener">dataset nzuri ya Multilingual-Thinking</a> na HuggingFace H4. Tunashukuru kwa mchango wao kwa jumuiya ya AI ya chanzo huria.</p>
+
+    </article>
+
+    <footer>
+      <div>Nadhari AI Lab</div>
+      <div>X/Twitter: <a href="https://twitter.com/NadhariAI" target="_blank" rel="noopener">@NadhariAI</a></div>
+    </footer>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      // Hide all content
+      document.querySelectorAll('.lang-content').forEach(el => {
+        el.classList.remove('active');
+      });
+      
+      // Show selected language content
+      document.getElementById('content-' + lang).classList.add('active');
+      
+      // Update button states
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
